@@ -1,4 +1,4 @@
-package com.beini.jslib.controller;
+package com.beini.web.controller;
 
 import java.util.Map;
 

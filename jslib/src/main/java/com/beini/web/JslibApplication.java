@@ -1,4 +1,4 @@
-package com.beini.jslib;
+package com.beini.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
