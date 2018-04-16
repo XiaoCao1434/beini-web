@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h2>单值取值</h2>
+<div id="singleOne"></div>
+
+<h2>单对象取值(map类似)</h2>
+<div id="object"></div>
+
+<h2>列表取值</h2>
+<div id="list"></div>
+
+<h2>综合展示</h2>
+<div id="colligate"></div>
+
+<script id="singleOne-template" type="text/x-handlebars-template">
+  {{this}}
+</script>
+
+<script id="object-template" type="text/x-handlebars-template">
+  id：{{id}}<br>
+  name:{{name}}<br>
+  password:{{password}}
+</script>
+
+<script id="list-template" type="text/x-handlebars-template">
+<ul>
+{{#each this}}
+    <li>{{this}}</li>
+{{/each}}
+</ul>
+</script>
+
+<script id="colligate-template" type="text/x-handlebars-template">
+msg:{{msg}}<br>
+code:{{code}}<br>
+<ul>
+<table border="1">
+	<tr>
+		<th>编号</th>
+		<th>姓名</th>
+	</tr>
+	{{#each data}}
+		<tr>
+    		<td>{{id}}</td>
+    		<td>{{name}}</td>
+		</tr>
+	{{/each}}
+</table>
+
+</ul>
+</script>
+
+<script src="/webjars/jquery/jquery.min.js"></script>
+<script src="/webjars/handlebars/handlebars.min.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+/*单个取值*/
+handlebarsRender("#singleOne-template","我是handlebars模板引擎s","#singleOne");
+
+/*单对象取值*/
+var object = {"id":12,"name":"姓名","password":"密码"};
+handlebarsRender("#object-template",object,"#object");
+
+/*列表取值*/
+var listData=["第一项","第二项","第三项","第四项"];
+handlebarsRender("#list-template",listData,"#list");
+
+/*综合展示*/
+var colligateData={
+		"code":200,
+		"msg":"成功",
+		"data":[
+			{"id":20,"name":"张三"},
+			{"id":30,"name":"李四"}
+			]
+		};
+handlebarsRender("#colligate-template",colligateData,"#colligate");
+
+</script>
+</body>
+</html>
