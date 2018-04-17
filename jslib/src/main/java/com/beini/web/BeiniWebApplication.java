@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JslibApplication {
+public class BeiniWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JslibApplication.class, args);
+		SpringApplication.run(BeiniWebApplication.class, args);
 	}
 }
