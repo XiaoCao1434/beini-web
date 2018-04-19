@@ -10,5 +10,5 @@ import com.beini.core.vo.ResultVO;
 @FeignClient(name="product")
 public interface ProductFeignClient {
 	@GetMapping("/product/product/{id}")
-	public ResultVO findById(@PathVariable("id")String id);
+	public ResultVO findById(@PathVariable(value="id")String id);
 }
