@@ -1,4 +1,4 @@
-package com.beini.web.feignClient.product;
+package com.beini.web.feignClient.order;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,34 +7,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.beini.core.vo.ResultVO;
+
 /**
- * 声明商品服务中的商品模块控制器接口
+ * 声明订单服务中的订单模块控制器接口
  * @author lb_chen
  * @date 2018-04-19 13:10
  */
-@FeignClient(name = "product")
-@RequestMapping("/product/product/")
+@FeignClient(name = "order")
+@RequestMapping("/order/order/")
 @SuppressWarnings("rawtypes")
-public interface ProductFeignClient {
+public interface OrderFeignClient {
 	/**
-	 * 根据商品ID获取商品信息
+	 * 根据订单ID获取订单信息
 	 * 
-	 * @see com.beini.product.controller.ProductController.findById(id)
+	 * @see com.beini.order.controller.OrderController.findById(id)
 	 * @param id
-	 *            商品ID
-	 * @return 商品信息
+	 *            订单ID
+	 * @return 订单信息
 	 */
 	@GetMapping("{id}")
 	public ResultVO findById(@PathVariable(value = "id") String id);
 
 	/**
-	 * 根据分页信息获取商品分页信息
+	 * 根据分页信息获取订单分页信息
 	 * 
 	 * @param pageNo
 	 *            第几页
 	 * @param pageSize
 	 *            每页条数
-	 * @return 商品分页信息
+	 * @return 订单分页信息
 	 */
 	@GetMapping("")
 	public ResultVO findByPage(@RequestParam(name = "pageNo", required = false, defaultValue = "1") Integer pageNo,
