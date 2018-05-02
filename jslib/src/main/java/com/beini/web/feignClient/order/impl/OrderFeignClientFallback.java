@@ -9,6 +9,10 @@ import com.beini.web.feignClient.order.OrderFeignClient;
 
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * 订单的远程调用服务fallback实现类
+ * @author lb_chen
+ */
 @Component
 @SuppressWarnings("rawtypes")
 @Slf4j

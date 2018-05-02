@@ -15,7 +15,7 @@ import com.beini.web.feignClient.order.impl.OrderFeignClientFallback;
  * @date 2018-04-19 13:10
  */
 @FeignClient(name = "order",fallback=OrderFeignClientFallback.class)
-@RequestMapping("/order/order/")
+/*@RequestMapping("/order/order/")*/
 @SuppressWarnings("rawtypes")
 public interface OrderFeignClient {
 	/**
@@ -26,7 +26,7 @@ public interface OrderFeignClient {
 	 *            订单ID
 	 * @return 订单信息
 	 */
-	@RequestMapping(value="{id}",method=RequestMethod.GET)
+	@RequestMapping(value="/order/order/{id}",method=RequestMethod.GET)
 	public ResultVO findById(@PathVariable(value = "id") String id);
 
 	/**
@@ -38,7 +38,7 @@ public interface OrderFeignClient {
 	 *            每页条数
 	 * @return 订单分页信息
 	 */
-	@RequestMapping(value="",method=RequestMethod.GET)
+	@RequestMapping(value="/order/order/",method=RequestMethod.GET)
 	public ResultVO findByPage(@RequestParam(name = "pageNo", required = false, defaultValue = "1") Integer pageNo,
 			@RequestParam(name = "pageSize", required = false, defaultValue = "10") Integer pageSize);
 }
