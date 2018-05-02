@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.beini.core.enums.ResultEnum;
+import com.beini.core.utils.ResultVOUtil;
 import com.beini.core.vo.ResultVO;
 import com.beini.web.feignClient.order.OrderFeignClient;
 
@@ -25,10 +27,17 @@ public class OrderController {
 	 */
 	@ApiOperation(value="订单详情页")
 	@GetMapping("/{id}")
+	/*方式一：步骤3*/
+	/*@HystrixCommand(fallbackMethod="getProductError")*/
 	public ResultVO getProductOne(@PathVariable("id")String id) {
-		System.out.println("getProductOne: "+ id);
+		System.out.println("getOrderOne: "+ id);
 		return orderFeignClient.findById(id);
 	}
+	/*方式一：步骤4*/
+	/*public ResultVO getProductError(String id) {
+		System.out.println("getProductError error: "+ id);
+		return ResultVOUtil.error(ResultEnum.ORDER_NOT_EXIST);
+	}*/
 	/**
 	 * 订单列表
 	 * @param pageNo 订单页码
