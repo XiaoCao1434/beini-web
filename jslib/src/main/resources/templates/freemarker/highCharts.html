@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  图表的呈现区域，和常规图表选项设置中的renderTo: 'container'对应-->
+<div id="container" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+
+<script src="webjars/jquery/jquery.min.js"></script>
+<script src="js/highcharts.js"></script>
+<script type="text/javascript">
+$(function () {
+   var chart;
+   $(document).ready(function() {
+       chart = new Highcharts.Chart({
+          //常规图表选项设置
+          chart: {
+              renderTo: 'container',        //在哪个区域呈现，对应HTML中的一个元素ID
+              plotBackgroundColor: null,    //绘图区的背景颜色
+              plotBorderWidth: null,        //绘图区边框宽度
+              plotShadow: false            //绘图区是否显示阴影            
+          },
+          
+          //图表的主标题
+          title: {
+              text: '2012年上半年中国笔记本电脑市场品牌关注比例分布'
+          },
+          //当鼠标经过时的提示设置
+          tooltip: {
+              pointFormat: '{series.name}: <b>{point.percentage}%</b>',
+              percentageDecimals: 1
+          },
+          //每种图表类型属性设置
+          plotOptions: {
+              //饼状图
+              pie: {
+                  allowPointSelect: true,
+                  cursor: 'pointer',
+                  dataLabels: {
+                      enabled: true,
+                      color: '#000',
+                      connectorColor: '#000',
+                      formatter: function() {
+                          return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                      }
+                  }
+              }
+           },
+           //图表要展现的数据
+           series: [{
+              type: 'pie',
+              name: '市场关注度',
+              data: [
+                  ['宏碁',7.6],
+                  ['惠普',12.1],
+                  ['华硕',13.7],
+                  ['联想',31.4],
+                  ['清华同方',3.3],
+                  ['三星',3.3],
+                  ['索尼',4.3],
+                  ['东芝',4.8],
+                  ['神舟',6.9],
+                  ['戴尔',7.2],
+                  ['其他',5.4]
+              ]
+          }]
+        });
+     });
+ });
+</script>
+</body>
+</html>

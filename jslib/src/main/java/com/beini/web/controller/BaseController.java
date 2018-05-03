@@ -16,4 +16,9 @@ public class BaseController {
 	public String simple_handlebars(Map<String, String> model) {
 		return "simple-handlebars";
 	}
+	
+	@RequestMapping("/highcharts")
+	public String highcharts() {
+		return "highCharts";
+	}
 }
