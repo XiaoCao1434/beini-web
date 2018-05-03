@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.beini.core.enums.ResultEnum;
-import com.beini.core.utils.ResultVOUtil;
 import com.beini.core.vo.ResultVO;
 import com.beini.web.feignClient.order.OrderFeignClient;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import io.swagger.annotations.ApiOperation;
 
